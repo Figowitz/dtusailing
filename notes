@@ -1,0 +1,32 @@
+HJEMMESIDEN:
+Formål:
+At få nemt overblik over status på laserjollerne, så man ved, hvor mange der er sejlklar.
+Brugere kan tilføje og slette attributter på både. Hver attribut har en kort og evt. lang beskrivelse.
+Der er to typer af attributter på bådene: 
+  - Kritiske, der gør, båden ikke kan sejles (sejl ødelagt, ror knækket...)
+  - Mindre problemer/forbedringer, men båden kan stadig sejles (Manglende taljer, rorpind bøjet...)
+
+Hurtigt overblik over status på joller (evt. andre både) i form af "bådkort".
+Tre typer status på båd:
+- Sejlklar, ingen eller mindre problemer.
+- Kan ikke sejle, alvorlige mangler (sejl ødelagt, ror knækket...)
+	Indikeret med ! evt. rød farve.
+- På land/til reparation.
+
+
+Klik på båd: 
+Større statuskort der fylder næsten hele skærmen (oprindelig side stadig synlig i udkanten(??))
+- Kort beskrivelse af båden og evt. billede.
+- Liste med den korte beskrivelse af problemer.
+- Længere beskrivelse fås ved at klikke på den korte.
+
+
+
+HUSK
+- Dato for ændringer (lille tekst i hjørnet af bådkort)
+
+
+FREMTIDIGE FEATURES
+- Print knap, der giver status på bådene i en pdf, så man nemt kan fikse det hele.
+- Login til brugere, så det ikke kan spoleres af random personer.
+- Brugere kan uploade billeder af problemet.

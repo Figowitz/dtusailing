@@ -1,0 +1,41 @@
+body {
+     background-color:#578497;
+}
+h1 {
+    font-family:Helvetica;
+    font-size:300%;
+    text-align: center;
+    color: white;
+}
+h3   {
+     font-family:"Segoe UI",Arial,Verdana,sans-serif;
+     color: black;
+     text-align: center;
+}
+p    {
+     color:black;
+     font-size:100%;
+}
+main{
+}
+.boatbox {
+     text-align: center;
+}
+.boatbox div{
+     display: inline-block;
+     vertical-align: middle;
+     width: 300px;
+     padding: 10px;
+     border: 1px solid gray;
+     margin: 10px;
+     background-color:#FFFFFF;
+     text-align: left;
+     -moz-box-shadow:    10px 10px 10px 0px #416473;
+     -webkit-box-shadow: 10px 10px 10px 0px #416473;
+     box-shadow:         10px 10px 10px 0px #416473;
+}
+img.icon-laser {
+     float: right;
+     margin: 0 0 0 0;
+     height: 64px;
+}

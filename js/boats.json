@@ -1,0 +1,12 @@
+{
+"lasers": [
+     {"callsign":"DTU 1", "sailtype":"Radial", "color":"white", 
+      "issues":["Broken sail", "Rudder missing"]
+     },
+     {"callsign":"DTU 2", "sailtype":"Radial", "color":"blue",
+      "issues":[]
+     },
+     {"callsign":"Nordbjærg", "sailtype":"Standard", "color":"blue",
+      "issues":[]
+     },
+}
