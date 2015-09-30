@@ -2,11 +2,13 @@
 <html>
 <head>
      <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
      <!-- <script type="text/javascript" src="http://livejs.com/live.js"></script> -->
       <meta charset="UTF-8"> 
       
       <!-- Load boat status -->
-      
+      <script src="js/plugins/jquery-2.1.4.min.js"></script>
+      <script src="magnific-popup/jquery.magnific-popup.js"></script>
 </head>
 
 <body>
@@ -15,41 +17,70 @@
 
 
 
-<main class='boatbox'>
-     <div>
-      <img class='icon-laser' src='icons/dinghy.png' alt='Laser'>
-      <h3 id='test'>Båd 1</h3>
-      <p>
-          Div med dinghy class.
-          Nu fylder jeg alt muligt lort i så der kommer meget tekst, lorem ipsum dolor sit amet. Nu fylder jeg alt muligt lort i så der kommer meget tekst, lorem ipsum dolor sit amet
-      </p>
-     </div>
+<main class='boatbox' id='main_id'>     
 
-     <div>
-      <img class='icon-laser' src='icons/dinghy.png' alt='Laser'>
-      <h3>Båd 2</h3>
-      <p>
-          Div med dinghy class.
-          Nu fylder jeg alt muligt lort i så der kommer meget tekst, lorem ipsum dolor sit amet. Nu fylder jeg alt muligt lort i så der kommer meget tekst, lorem ipsum dolor sit amet
-      </p>
-     </div>
-      
-     <div>
-      <img class='icon-laser' src='icons/dinghy.png' alt='Laser'>
-      <h3>Båd 3</h3>
-      <p>
-      Div med dinghy class.
-          Nu fylder jeg alt muligt lort 
-      </p>
-     </div>
-     
-<script src='js/jquery-1.11.3.min.js'></script>
-<script>
-$.getJSON("js/people.json",{}, function( data ){ 
-  /*  # do stuff here  */ 
-});
-</script>
-
+      <script src="magnific-popup/jquery.magnific-popup.js"></script>
+     <script>
+          $(document).ready(function() {
+               $.getJSON('js/boats.json', function(boats) {
+                    $('#main_id').append('<h2>Lasers</h2>');
+                    
+                    // Loop through all lasers
+                    for (var i = 0; i<boats.lasers.length; i++) {
+                         var output = '';
+                         var laser = boats.lasers[i];
+                         
+                         // Assign id and create proper amount of div boxes with individual ids
+                         container_name = 'container'+i
+                         content_name = 'laser' + i;
+                         console.log(content_name);
+                         $('#main_id').append('<div class="container" id="'+container_name+'"><div class="overflowshadow"></div><div class="content" id="'+content_name+'"> </div></div>');
+                         // Output data about the boats
+                         output += '<img class="icon-laser" src="figures/icons/dinghy.png" alt="Laser">';
+                         output += '<h3>'+laser.callsign+'</h3><h4>'+laser.sailtype+'</h4>';
+                         output += '<p>'+laser.description+'</p>';
+                         
+                         // Check for issues with the boat
+                         if (typeof laser.issues !== 'undefined' && laser.issues.length > 0) {
+                              output += '<p><b>Issues!</b><br>';
+                              for (var j = 0; j<laser.issues.length; j++) {
+                                   output += '- '+laser.issues[j]+'<br>';
+                              }
+                         }
+                         else {
+                              output += '<p>No issues</p>';
+                         }
+                         
+                         // Write output to corresponding div box
+                         $('#'+content_name).append(output);
+                         
+                         // Check if text has overflowed and make suitable indicator
+                         var containerHeight = $('#'+container_name).height();
+                         var containerWidth = $('#'+container_name).width();
+                         var contentHeight = $('#'+content_name).height();
+                         if(contentHeight > containerHeight) {
+                              //$('.overflowshadow').css('height', containerHeight);
+                              //$('.overflowshadow').css('-webkit-box-shadow', 'inset 0px -10px 9px -7px rgba(255,255,255,0.75)');
+                              //$('.overflowshadow').css('-moz-box-shadow', 'inset 0px -10px 9px -7px rgba(255,255,255,0.75)');
+                              $('.overflowshadow').css('box-shadow', 'inset 0px -20px 10px -10px rgba(180,180,180,0.9)');
+                              console.log('Overflow of ' + content_name);
+                              
+                              overflow_indicator = '<div class="overflow_indicator" id="overflow'+i+'">⋯</div>';
+                              $('#'+container_name).append(overflow_indicator);
+                              //$('#'+container_name).append('<a class="simple-ajax-popup-align-top" href="http://www.google.com"></a>');
+                         }
+                         
+                    }
+                    
+                    $('#main_id').append('<h2>Trapezes</h2>');
+               })
+               
+          
+          
+               // Here goes code for the big popup when clicking on the boats
+               
+          })
+     </script>
 </main>
 
 </body>
